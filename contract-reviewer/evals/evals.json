@@ -1,0 +1,27 @@
+{
+  "skill_name": "contract-reviewer",
+  "description": "驗證 contract-reviewer 能正確掃描合約、識別乙方風險、產生 highlight 副本與風險報告。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "scan-and-review-all-contracts",
+      "prompt": "請幫我審查 contract 資料夾裡所有的合約，並產生黃色螢光筆標記的副本與風險分析報告。",
+      "expected_output": "對每份合約皆產生 {filename}_reviewed.docx（含黃色 highlight）與 {filename}_risk_report.docx（含風險明細表、缺失條款、整體建議）；原始檔不得被修改。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "single-contract-explicit-stance",
+      "prompt": "以乙方立場審查 contract/軟體委任設計合約書_基金會計系統.docx，重點關注付款條件、IP 歸屬與違約金。",
+      "expected_output": "聚焦於 payment_risk、ip_risk、penalty_risk 三類風險；報告應明確指出每日 1% 違約金、IP 強制授權與 60 日付款期等高風險條款。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "doc-format-handling",
+      "prompt": "contract 資料夾裡如果有 .doc 檔，也要一起審查。",
+      "expected_output": "若無 LibreOffice 可用，明確告知使用者並跳過該檔；若可轉檔，先轉成 .docx 再依正常流程審查，輸出檔仍以原檔名為 base。",
+      "files": []
+    }
+  ]
+}
