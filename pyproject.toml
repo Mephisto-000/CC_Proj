@@ -6,10 +6,12 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "customtkinter>=5.2.2",
+    "openpyxl>=3.1.5",
 ]
 
 [project.scripts]
 fund-nav = "fund_nav:main"
+daily-git-history = "daily_git_history:main"
 
 [dependency-groups]
 dev = [
@@ -20,7 +22,7 @@ dev = [
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
-addopts = "--cov=fund_nav --cov-report=term-missing --cov-fail-under=90"
+addopts = "--cov=fund_nav --cov=daily_git_history --cov-report=term-missing --cov-fail-under=90"
 
 [tool.coverage.run]
 branch = true
